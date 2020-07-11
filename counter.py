@@ -95,7 +95,6 @@ class MainWindow(qtw.QWidget):
         self.update()
 
     def editLabel(self):
-        print("label")
         self.label.hide()
         self.edit.show()
         self.edit.setFocus()
