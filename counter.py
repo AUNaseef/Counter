@@ -65,6 +65,7 @@ class MainWindow(qtw.QWidget):
         sub.setShortcut(qtc.Qt.Key_S)
         reset.setToolTip("Reset (D)")
         reset.setShortcut(qtc.Qt.Key_D)
+        self.label.setToolTip("Edit (DoubleClick/E)")
 
         # Pack elements
         grid.layout().addWidget(add, 0, 0, 1, 2)
