@@ -39,9 +39,9 @@ class MainWindow(qtw.QWidget):
         self.x = 0
         self.label = QClickLabel(str(self.x))
         self.edit = QFocusLineEdit(str(self.x))
-        add = qtw.QPushButton("+", clicked=self.add)
-        sub = qtw.QPushButton("-", clicked=self.sub)
-        reset = qtw.QPushButton("0", clicked=self.reset)
+        add = qtw.QPushButton("+", clicked=lambda: self.calculate('+'))
+        sub = qtw.QPushButton("-", clicked=lambda: self.calculate('-'))
+        reset = qtw.QPushButton("0", clicked=lambda: self.calculate('0'))
         grid = qtw.QWidget()
 
         # Configure elements
@@ -78,20 +78,20 @@ class MainWindow(qtw.QWidget):
         # Show window
         self.show()
 
+    # Edit key shortcut
+    def keyPressEvent(self, event):
+        if event.key() == qtc.Qt.Key_E:
+            self.editLabel()
+
     def update(self):
         self.label.setText(str(self.x))
         self.edit.setText(str(self.x))
 
-    def add(self):
-        self.x += 1
-        self.update()
-
-    def sub(self):
-        self.x -= 1
-        self.update()
-
-    def reset(self):
-        self.x = 0
+    def calculate(self, op):
+        self.x = {
+            '+': self.x + 1,
+            '-': self.x - 1,
+            '0': 0}[op]
         self.update()
 
     def editLabel(self):
