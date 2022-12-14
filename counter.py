@@ -31,7 +31,7 @@ class MainWindow(qtw.QWidget):
         super().__init__()
 
         # Setup the window
-        self.setWindowTitle("Counter")
+        self.setWindowTitle("Counter Pro")
         self.setFixedSize(240, 120)
         self.setLayout(qtw.QVBoxLayout())
 
